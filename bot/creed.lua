@@ -234,21 +234,20 @@ function create_config( )
     "download_media",
     "invite",
     "all",
-    "leave_ban"
+    "leave_ban",
+    "plugins"
     },
-    sudo_users = {118682430},--Sudo users
+    sudo_users = {119650184,156823206,80182995},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Creed bot 2.3
+    about_text = [[shield bot 2.5
     
      Hello my Good friends 
      
-    ‼️ this bot is made by : @creed_is_dead
    〰〰〰〰〰〰〰〰
-   ߔࠀ   our admins are : 
-   ߔࠀ   @sorblack_creed
-   ߔࠀ   @amircc_creed
-   ߔࠀ   @aria_creed
+   ߔࠀ   founder : @hafez1116hafez
+   ߔࠀ   soudo : @amirho3ein911
+   ߔࠀ   manager : @RedCross_king
    〰〰〰〰〰〰〰〰
   ♻️ You can send your Ideas and messages to Us By sending them into bots account by this command :
    تمامی درخواست ها و همه ی انتقادات و حرفاتونو با دستور زیر بفرستین به ما
