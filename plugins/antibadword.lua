@@ -87,7 +87,7 @@ return {patterns = {
 "[Mm][Aa][Dd][Aa][Rr] [Jj][Ee][Nn][Dd][Ee][Hh]",
 "[Kk][Ii][Rr][Aa][Mm] [Dd][Aa][Hh][Aa][Nn]Ee][Tt][Oo][Nn]",
 "[Dd][Oo][Dd][Oo][Ll]",
-"[Ss][Hh][Oo][Mm][Bb][Oo][Ll]
+"[Ss][Hh][Oo][Mm][Bb][Oo][Ll]",
 "[Cc][Oo][Ss][Ii]",
 "[Nn][Aa][Nn][Ee] [Cc][Oo][Ss]",
 "[Cc][Oo][Ss] [Mm][Ee][Mm][Bb][Ee][Rr]",
@@ -110,5 +110,5 @@ return {patterns = {
 "[Mm][Aa][Dd][Aa][Rr] [Bb][Ee] [Kk][Aa][Tt][Aa]",
 "[Hh][Rr][Oo][Mm] [Zz][Aa][Dd][Ee]",
 "[Bb][Ii] [Gg][Ee][Rr][Aa][Tt]",
-"[Gg][Aa][Ii][Dd][Ii][Nn]",
+"[Gg][Aa][Ii][Dd][Ii][Nn]"
 }, run = run}
