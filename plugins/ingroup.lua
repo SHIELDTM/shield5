@@ -207,8 +207,8 @@ local function show_group_settingsmod(msg, data, target)
         end
 
   local lock_adds= "no"
-    if data[tostring(msg.to.id)]['settings']['lock_adds'] then
-        lock_adds = data[tostring(msg.to.id)]['settings']['lock_adds']
+    if data[tostring(msg.to.id)]['settings']['lock_join'] then
+        lock_adds = data[tostring(msg.to.id)]['settings']['lock_join']
         end
 
           local lock_eng = "no"
@@ -537,11 +537,11 @@ local function lock_group_adds(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
-  local adds_ban = data[tostring(msg.to.id)]['settings']['adds_ban']
+  local adds_ban = data[tostring(msg.to.id)]['settings']['lock_join']
   if adds_ban == 'yes' then
     return 'join by link has been locked!'
   else
-    data[tostring(msg.to.id)]['settings']['adds_ban'] = 'yes'
+    data[tostring(msg.to.id)]['settings']['lock_join'] = 'yes'
     save_data(_config.moderation.data, data)
   end
   return 'join by link is already locked!'
@@ -551,11 +551,11 @@ local function unlock_group_adds(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
-  local adds_ban = data[tostring(msg.to.id)]['settings']['adds_ban']
+  local adds_ban = data[tostring(msg.to.id)]['settings']['lock_join']
   if adds_ban == 'no' then
     return 'join by link hes been unlocked!'
   else
-    data[tostring(msg.to.id)]['settings']['adds_ban'] = 'no'
+    data[tostring(msg.to.id)]['settings']['lock_join'] = 'no'
     save_data(_config.moderation.data, data)
     return 'join by link is already unlocked!'
   end
@@ -1283,7 +1283,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked arabic ")
         return lock_group_arabic(msg, data, target)
       end
-          if matches[2] == 'adds' then
+          if matches[2] == 'link' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked link ")
         return lock_group_link(msg, data, target)
       end
@@ -1338,7 +1338,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked arabic ")
         return unlock_group_arabic(msg, data, target)
       end
-          if matches[2] == 'adds' then
+          if matches[2] == 'link' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link ")
         return unlock_group_link(msg, data, target)
       end
