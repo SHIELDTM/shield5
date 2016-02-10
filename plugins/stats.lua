@@ -91,7 +91,7 @@ local function bot_stats()
   return text
 end
 local function run(msg, matches)
-  if matches[1]:lower() == 'creedbot' then -- Put everything you like :)
+  if matches[1]:lower() == 'shield' then -- Put everything you like :)
     local about = _config.about_text
     local name = user_print_name(msg.from)
     savelog(msg.to.id, name.." ["..msg.from.id.."] used /creedbot ")
@@ -120,7 +120,7 @@ local function run(msg, matches)
         return
       end
     end
-    if matches[2] == "creedbot" then -- Put everything you like :)
+    if matches[2] == "shield" then -- Put everything you like :)
       if not is_admin(msg) then
         return "For admins only !"
       else
@@ -141,8 +141,8 @@ return {
     "^[!/]([Ss]tats)$",
     "^[!/]([Ss]tatslist)$",
     "^[!/]([Ss]tats) (group) (%d+)",
-    "^[!/]([Ss]tats) (creedbot)",-- Put everything you like :)
-		"^[!/]([Cc]reedbot)"-- Put everything you like :)
+    "^[!/]([Ss]tats) (shield)",-- Put everything you like :)
+		"^[!/]([Ss]hield)"-- Put everything you like :)
     }, 
   run = run
 }
