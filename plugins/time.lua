@@ -95,5 +95,7 @@ end
 return {
   description = "Get Time Give by Local Name", 
   usage = "/time (local) : view local time",
-  patterns = {"^[!/]time (.*)$"}, 
+  patterns = {
+    "^[!/]time (.*)$"
+    }, 
   run = run
