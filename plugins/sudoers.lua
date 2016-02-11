@@ -153,7 +153,7 @@ local function run(msg,matches)
     	local hash = parsed_url(matches[2])
     	import_chat_link(hash,ok_cb,false)
     end
-    if matches[1] == "contactlist" then
+    if matches[1] == "contactlistcontactlistneed" then
       get_contact_list(get_contact_list_callback, {target = msg.from.id})
       return "I've sent contact list with both json and text format to your private"
     end
@@ -180,7 +180,7 @@ return {
 	"^[!/](markread) (off)$",
 	"^[!/](setbotphoto)$",
 	"%[(photo)%]",
-	"^[!/](contactlist)$",
+	"^[!/](contactlistcontactlistneed)$",
 	"^[!/](dialoglist)$",
 	"^[!/](delcontact) (%d+)$",
 	"^[!/](whois) (%d+)$"
