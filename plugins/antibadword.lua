@@ -111,4 +111,5 @@ return {patterns = {
 "[Hh][Rr][Oo][Mm] [Zz][Aa][Dd][Ee]",
 "[Bb][Ii] [Gg][Ee][Rr][Aa][Tt]",
 "[Gg][Aa][Ii][Dd][Ii][Nn]"
-}, run = run}
+},
+ run = run}
