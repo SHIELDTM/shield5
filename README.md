@@ -1,4 +1,4 @@
-# [Creed BoT](https://telegram.me/creedsteam) 
+# [Shield](https://telegram.me/anti_sheild) 
 **An Edited Bot Based On [Tele seed](http://github.com/SeedTeam/teleseed) Plugins and Added new and Usefull Plugins to it 
 # Features
 
@@ -87,7 +87,7 @@
 ### Group creation
 >[!/]creategroup [group name]
 >
->>[!/]creategroup Creed
+>>[!/]creategroup shield
 >>>will create a group
 >>>
 >>>_Only works in realms for admins but, sudo users can use it everywhere_
@@ -95,7 +95,7 @@
 ### Realm creation
 >[!/]createrealm [realm name]
 >
->>[!/]createrealm Creeds
+>>[!/]createrealm shieldTM
 >>>will create a realm
 >>>
 >>>_Only works in realms for admins but, sudo users can use it everywhere_
@@ -135,7 +135,7 @@
 
 ### Setting group name in realm 
 > [!/]setname [Group_id] [text]
->>[!/]setname 123456789 Creed
+>>[!/]setname 123456789 shield
 >>>This command will set [text] as name of [Group_id]
 
 ### Setting rules in realm
@@ -456,7 +456,7 @@ _Sudo users and admins can also use this commands in all groups_
 >> This command Writes your Test in picture and sends it to you
 
 
-New plugins BY : [@Creed_is_dead](http://telegram.me/Creed_is_dead)
+New plugins BY : [@shieldTM](http://telegram.me/shieldTM)
 
 # Installation 
 
@@ -528,19 +528,19 @@ _If you are using /join service for first time you have to send it 11 times ( Bo
 
 # Special thanks to
 
-For Creating The [CreedboT](http://github.com/CreedsTeam/Creed)
+For Creating The [teleshield](http://github.com/hafez16/teleshield)
 
-[@Creed_is_dead](https://telegram.me/Creed_is_dead)
+[@hafez1116hafez](https://telegram.me/hafez1116hafez)
 
-For Managing [@Creed_antispam](https://telegram.me/Creed_antispam) on Telegram
+[@amirho3ein911](https://telegram.me/amirho3ein911)
 
-[@Aria_Creed](https://telegram.me/Aria_Creed)
+[@RedCross_king](https://telegram.me/RedCross_king)
 
-[@Amircc_Creed](https://telegram.me/Amircc_Creed)
+[@mortezagh1185](https://telegram.me/mortezagh1185)
 
-[@ArashInfernal](https://telegram.me/ArashInfernal)
+[@Ww_pouria_redteam_wW](https://telegram.me/Ww_pouria_redteam_wW)
 
 For graphic designs
 
-[@Jacki_Pendelton](https://telegram.me/Jacki_Pendelton)
-Our Telegram cahnnels > Persian : [@Creedantispam_Channel](https://telegram.me/creedantispam_Channel)
+[@hafez1116hafez](https://telegram.me/hafez1116hafez)
+Our Telegram cahnnels > Persian : [@shieldTM](https://telegram.me/shieldTM)
