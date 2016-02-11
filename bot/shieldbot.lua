@@ -264,7 +264,7 @@ function create_config( )
      
    〰〰〰〰〰〰〰〰
    ߔࠀ   founder : @hafez1116hafez
-   ߔࠀ   soudo : @amirho3ein911
+   ߔࠀ   sudo : @amirho3ein911
    ߔࠀ   manager : @RedCross_king
    〰〰〰〰〰〰〰〰
   ♻️ You can send your Ideas and messages to Us By sending them into bots account by this command :
