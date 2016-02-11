@@ -358,195 +358,99 @@ You Can user both "!" & "/" for them
 
 ]],
     help_text = [[
-bots Help for mods : Plugins
-
-Banhammer : 
-
-
-Help For Banhammer دستوراتی برای کنترل گروه
-
-!Kick @UserName or ID 
-شخصی را از گروه حذف کنید . همچنین با ریپلی هم میشه
-
-!Ban @UserName or ID
-برای بن کردن شخص اسفاده میشود . با ریپلی هم میشه
-
-
-!Unban @UserName
-برای آنبن کردن شخصی استفاده میشود . همچنین با ریپلی هم میشه
-
-For Admins :
-
-!banall ID
-برای بن گلوبال کردن از تمامی گروه هاست باید ای دی بدین با ریپلی هم میشه
-
-!unbanall ID
-برای آنبن کردن استفاده میشود ولی فقط با ای دی میشود
-
-〰〰〰〰〰〰〰〰〰〰
-2. GroupManager :
-
-!lock leave
-اگر کسی از گروه برود نمیتواند برگردد
-
-!lock tag
-برای مجوز ندادن به اعضا از استفاده کردن @  و #  برای تگ
-
-
-!Creategp "GroupName"
-you can Create group with this comman
-با این دستور برای ساخت گروه استفاده بکنید
-
-
-!lock member
-For locking Inviting users
-برای جلوگیری از آمدن اعضای جدید استفاده میشود
-
-
-!lock bots
-for Locking Bots invitation
-برای جلوگیری از ادد کردن ربا استفاده میشود
-
-
-!lock name
-To lock the group name for every bodey
-برای قفل کردن اسم استفاده میشود
-
-!setflood set the group flood control  
-تعداد اسپم را در گروه تعیین میکنید
-
-!settings
-Watch group settings
-تنظیمات فعلی گروه را میبینید
-
-!owner
-watch group owner
-آیدی سازنده گروه رو میبینید
-
-!setowner user_id
-You can set someone to the group owner‼️
-برای گروه سازنده تعیین میکنید 
-
-!modlist
-catch Group mods
-لیست مدیران گروه را میگیرید
-
-!lock adds 
-to lock commercial Breaks and Other group links in group
-از دادن لینک گروه یا سایت یا هرچیز دیگه توی گروه جلوگیری میکند .
-
-!lock eng
-You cannot speak english in group
-از حرف زدن انگلیسی توی گروه جلوگیری میکند
-
-!lock settings
-To lock settings of group and unchange able
-برای قفل کردن تنظیمات گروه به کار میره
-
-!lock badw
-To lock using badwords in group
-برای جلوگیری از استفاده کردن حرف های رکیک استفاده میشود
-
-
-!lock join 
-to lock joining the group by link
-برای جلوگیری از وارد شدن به کروه با لینک
-
-
-!lock flood
-lock group flood
-از اسپم دادن در گروه جلوگیری کنید
-
-!unlock (bots-member-flood-photo-name-tag-link-join-Arabic)
-Unlock Something
-موارد بالا را با این دستور آزاد میسازید
-
-!rules  && !set rules
-TO see group rules or set rules
-برای دیدن قوانین گروه و یا انتخاب قوانین 
-
-!about or !set about
-watch about group or set about
-در مورد توضیحات گروه میدهد و یا توضیحات گروه رو تعیین کنید 
-
-!res @username
-see Username INfo
-در مورد اسم و ای دی شخص بهتون میده 
-
-!who
-Get Ids Chat
-همه ی ای دی های موجود در چت رو بهتون میده
-
-!log 
-get members id
-تمامی فعالیت های انجام یافته توسط شما و یا مدیران رو نشون میده
+Commands list :
 
 !all
-Says every thing he knows about a group
-در مورد تمامی اطلاعات ثبت شده در مورد گروه میدهد
+دریافت تمام اطلاعات گروه
 
+!kick [username|id]
+میتوانید با رپلای هم انجام دهید
 
+!ban [ username|id]
+میتوانید با رپلای هم انجام دهید
+
+!unban [id]
+میتوانید با رپلای هم انجام دهیدn
+!who
+اعضای گروه
+!modlist
+لیست ادمین ها
+!promote [username]
+افزودن به مدیریت
+!demote [username]
+برکناری یک شخص از مدیریت
+!kickme
+لفت دادن از گروه
+!about
+توضیحات گروه
+!setphoto
+قرار دادن و قفل کردن عکس
+!setname [name]
+تنظیم اسم گروه
+!rules
+قوانین گروه
+!id
+return گرفتن ایدی گروه
+!info
+گرفتن اطلاعات خود و مقام خود
+!me
+فهمیدن مقام خود
+!lock [member|name|bots|leave|eng|arabic|sticker|tag|link|join|badw]
+قفلل اسم- اعضا-ربات ها - لفت دادن
+با فعال کردن قفل leave کسی لفت دهد از گروه بن میشود
+قفل استیکر-تگ-لینک-عربی-ورود به گروه-کلمات بد-انگلیسی
+eng=englishانگلیسی-badw=bad words کلمات زشت-tag=@ # اینها قفل می شوند
+!unlock [member|name|bots|leave|eng|arabic|sticker|tag|link|join|badw]
+برای باز کردن بالایی ها
+!set rules <text>
+تعیین قوانین گروه
+!set about <text>
+تعیین توضیحات گروه
+!settings
+تنظیمات گروه
 !newlink
-Changes or Makes new group link
-لینک گروه رو عوض میکنه 
-
+ایجاد لینک جدید
 !link
-gets The Group link
-لینک گروه را در گروه نمایش میده
-
-!linkpv
-sends the group link to the PV
-برای دریافت لینک در پیوی استفاده میشه 
-〰〰〰〰〰〰〰〰
-Admins :
-
-!add
-to add the group as knows
-برای مجوز دادن به ربات برای استفاده در گروه
-
-
-!rem
-to remove the group and be unknown
-برای ناشناس کردن گروه برای ربات توسط مدیران اصلی
-
-!setgpowner (Gpid) user_id
-For Set a Owner of group from realm
- برای تعیین سازنده ای برای گروه  از گروه مادر
-
-!addadmin [Username]
-to add a Global admin to the bot
-برای ادد کردن ادمین اصلی ربات
-
-
-!removeadmin [username]
-to remove an admin from global admins
-برای صلب ادمینی از ادمینای اصلی
-
-!sms [id] (text)
-To send a message to an account by his/her ID
-برای فرستادن متنی توسط ربات به شخصی با ای دی اون
-
-
-〰〰〰〰〰〰〰〰〰〰〰
-3.!stats
-To see the group stats
-برای دیدن آمار گروه 
-
-〰〰〰〰〰〰〰〰
-4. Feedback
-!feedback (text)
-To send your ideas to the Moderation group
-برای فرستادن انتقادات و پیشنهادات و حرف خود با مدیر ها استفاده میشه
-
-〰〰〰〰〰〰〰〰〰〰〰
-5. Tagall
+گرفتن لینک گروه
+!owner
+ایدی صاحب اصلی گروه
+!setowner [id]
+تعیین ادمین کل گروه
+!setflood [value]
+تعیین تعداد اسپم مجاز
+!stats
+تعداد پیامهای ارسالی کاربران
+!save [value] <text>
+ذخیره متن مورد نظر
+!get [value]
+نمایش متن ذخیره شده
+!clean [modlist|rules|about]
+حذف تمام مدیرها و قوانین و توضیحات گروه
+!res [username]
+نمایش ایدی کد یک شخص
+"!res @username"
+!log
+نمایش دستورات اجرایی مدیرها
 !tagall (text)
-To tags the every one and sends your message at bottom
-تگ کردن همه ی اعضای گروه و نوشتن پیام شما زیرش
-
-
-You Can user both "!" & "/" for them
-می توانید از دو شکلک !  و / برای دادن دستورات استفاده کنید
+صداکردن همه اعضا
+!feedback (text)
+ارسال نظر خود یا پیشنهاد مستقیم به مدیرربات
+!google (text)
+جست و جوی مستقیم در گوگل
+!banlist
+نمایش افراد بن شده
+!linkpv
+ارسال سریع لینک در پیوی شما
+!kickinactive
+حذف خودکار کسانی که در گروه فعالیت ندارند
+!filter + کلمه مورد نظر !filter - کلمه مورد نظر
+اضافه کردن کلمات ممنوع و برداشتن
+!fohsh اسم طرف
+به طرف فحش می ده
+------------------------
+برای اجرای دستور میتوانید از ! و / استفاده کنید
+*بیشتر دستورات مخصوص مودها و اونرها میباشد kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
+*Only owner can use res,setowner,promote,demote and log commands
 
 ]]
 
