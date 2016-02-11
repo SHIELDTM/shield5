@@ -1,29 +1,44 @@
-local function run(msg)
-if msg.text == "me" then
-      if  is_sudo(msg) then
-  return "you're sudo"
+
+local function action_by_reply(extra, success, result)
+	local hash = 'rank:'..result.to.id..':variables'
+	local text = ''
+		local value = redis:hget(hash, result.from.id)
+		 if not value then
+		    if result.from.id == tonumber(Arian) then
+		       text = text..' مدیر کل ربات  \n\n'
+		     elseif is_admin2(result.from.id) then
+		       text = text..' ادمین ربات  \n\n'
+		     elseif is_owner2(result.from.id, result.to.id) then
+		       text = text..' مدیر کل گروه \n\n'
+		     elseif is_momod2(result.from.id, result.to.id) then
+		       text = text..' مدیر گروه  \n\n'
+		 else
+		       text = text..' کاربر \n\n'
+			end
+		  else
+		   text = text..''..value..'\n\n'
+		 end
+   send_msg(extra.receiver, text, ok_cb,  true)
 end
-elseif msg.text == "me" then
-      if  is_admin(msg) then
-  return "you're admin"
+
+local function run(msg, matches)
+local receiver = get_receiver(msg)
+  local user = matches[1]
+  local text = ''
+if msg.reply_id then
+        msgr = get_message(msg.reply_id, action_by_reply, {receiver=receiver})
+      else
+	  return 
+	  end
+	  
 end
-elseif msg.text == "me" then
-      if  is_mod(msg) then
-  return "you're Moderator"
-end
-elseif msg.text == "me" then
-      if  not is_mod(msg) then
-  return "you're Member"
-end
+
 return {
-  description = "sends who are you", 
-  usage = "chat with robot",
+  description = "Simplest plugin ever!",
+  usage = "!echo [whatever]: echoes the msg",
   patterns = {
-  "^[!/]me$",
-    },
-End }
-  run = run,
-    privileged = true,
-  pre_process = pre_process
+    "in kie",
+	"این کیه",
+  }, 
+  run = run 
 }
-end
