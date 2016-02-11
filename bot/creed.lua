@@ -210,6 +210,7 @@ function create_config( )
     "inpm",
     "banhammer",
     "Boobs",
+    "amir",
     "Feedback",
     "lock_join",
     "antilink",
