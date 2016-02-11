@@ -240,7 +240,7 @@ function create_config( )
     sudo_users = {119650184,156823206,80182995},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[shield bot 2.5
+    about_text = [[shield bot 3.0
     
      Hello my Good friends 
      
