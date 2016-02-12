@@ -6,10 +6,10 @@ end
 
 return {
   description = "Says hello to someone", 
-  usage = "سلام بگو به [name]",
+  usage = "say hello to [name]",
   patterns = {
-    "^سلام بگو به  (.*)$",
-    "^سلام بگو به  (.*)$"
+    "^سلام بگو به امیر (.*)$",
+    "^سلام بگو به امیر (.*)$"
 
   }, 
   run = run 
