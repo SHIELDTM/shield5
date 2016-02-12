@@ -1,3 +1,5 @@
+do
+
 function run(msg, matches)
   return "Hello, " .. matches[1]
 end
