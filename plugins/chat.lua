@@ -47,43 +47,43 @@ end
 if msg.text == "bye" then
   return "Bye Bye"
 end
-if msg.text == "khubi?"then
+if msg.text == "khubi?" then
     return "merc"
 end
-if msg.text == "bax"then
+if msg.text == "bax" then
     return "jun"
 end
-if msg.text == "Bax"then
+if msg.text == "Bax" then
   return "Jun"
 end
-if msg.text == "سلام"then
+if msg.text == "سلام" then
     return "سلااام"
 end
-if msg.text == "خوبی؟"then
+if msg.text == "خوبی؟" then
   return "مرسی"
 end
-if msg.text =="امیر"then
+if msg.text =="امیر" then
   return "امیر بیا این یارو کارت داره"
 end
-if msg.text == "amir"then
+if msg.text == "amir" then
   return "amir bia in yaru karet dare"
 end
-if msg.text == "koskesh"then
+if msg.text == "koskesh" then
   return "sigar nakesh"
 end
-if msg.text == "kuni"then
+if msg.text == "kuni" then
   return "fosh nadee😡😡"
 end
-if msg.text == "Koskesh"then
+if msg.text == "Koskesh" then
   return "sigar nakesh"
 end
-if msg.text == "Kuni"then
+if msg.text == "Kuni" then
   return "foosh nadee😡😡"
 end
-if msg.text == "کسکش"then
+if msg.text == "کسکش" then
     return "سیگار نکش"
 end
-if msg.text == "کونی"then
+if msg.text == "کونی" then
   return "😡😡فش ندهههههههه"
 end
 end
