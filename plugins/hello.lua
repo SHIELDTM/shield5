@@ -5,11 +5,11 @@ function run(msg, matches)
 end
 
 return {
-  description = "Says hello to someone", 
-  usage = "say hello to [name]",
+  description = "Says سلام to someone", 
+  usage = "say سلام to [name]",
   patterns = {
-    "^سلام بگو به امیر (.*)$",
-    "^سلام بگو به امیر (.*)$"
+    "^سلام بگو به  (.*)$",
+    "^سلام بگو به  (.*)$"
 
   }, 
   run = run 
