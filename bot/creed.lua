@@ -216,6 +216,7 @@ function create_config( )
     "antilink",
     "antitag",
     "gps",
+    "music",
     "auto_leave",
     "block",
     "tagall",
