@@ -238,7 +238,20 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
-    "plugins"
+    "plugins",
+    "webshot",
+    "text",
+    "stats",
+    "me",
+    "info",
+    "lock_english",
+    "linkpv",
+    "antibadword",
+    "calc",
+    "chat",
+    "cpu",
+    "echo",
+    "fohsh"
     },
     sudo_users = {119650184,156823206,80182995},--Sudo users
     disabled_channels = {},
