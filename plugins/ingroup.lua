@@ -665,13 +665,13 @@ local function set_rulesmod(msg, data, target)
     return "For moderators only!"
   end
      
-  local group_bots_lock = data[tostring(target)]['settings']['antifosh']
+  local group_bots_lock = data[tostring(target)]['settings']['lock_english']
   if group_bots_lock == 'yes' then
-    return 'lock fosh is already enabled'
+    return 'lock_english is already enabled'
   else
-    data[tostring(target)]['settings']['antifosh'] = 'yes'
+    data[tostring(target)]['settings']['lock_english'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'lock fosh has been enabled'
+    return 'lock_english has been enabled'
   end
 end
 
@@ -679,13 +679,13 @@ local function unlock_group_bots(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
-  local group_bots_lock = data[tostring(target)]['settings']['antifosh']
+  local group_bots_lock = data[tostring(target)]['settings']['lock_english']
   if group_bots_lock == 'no' then
-    return 'lock fosh is already disabled'
+    return 'lock_english is already disabled'
   else
-    data[tostring(target)]['settings']['antifosh'] = 'no'
+    data[tostring(target)]['settings']['lock_english'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'lock fosh has been disabled'
+    return 'lock_english has been disabled'
   end
 local function lock_group_bots(msg, data, target)
   if not is_momod(msg) then
