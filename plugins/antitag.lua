@@ -1,24 +1,27 @@
-local function run(msg)
-
+local function run(msg, matches)
+    if is_owner(msg) then
+        return
+    end
     local data = load_data(_config.moderation.data)
-
-     if data[tostring(msg.to.id)]['settings']['lock_tag'] == 'yes' then
-
-
-if not is_momod(msg) then
-
-
-chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
-    local msgtag = 'You cant tag anything here '
-   local receiver = msg.to.id
-    send_large_msg('chat#id'..receiver, msgads.."\n", ok_cb, false)
-
-      end
-   end
+    if data[tostring(msg.to.id)] then
+        if data[tostring(msg.to.id)]['settings'] then
+            if data[tostring(msg.to.id)]['settings']['antitag'] then
+                lock_tag = data[tostring(msg.to.id)]['settings']['antitag']
+            end
+        end
+    end
+    local chat = get_receiver(msg)
+    local user = "user#id"..msg.from.id
+    if lock_tag == "yes" then
+        send_large_msg(chat, 'شما تگ فرستادید و این در گروه ممنوع است\nشما اخراج می شوید')
+        chat_del_user(chat, user, ok_cb, true)
+    end
 end
-
-return {patterns = {
-"#(.*)",
-"@(.*)",
-}, run = run}
-
+ 
+return {
+  patterns = {
+    "#(.*)",
+    "@(.*)"
+  },
+  run = run
+}
