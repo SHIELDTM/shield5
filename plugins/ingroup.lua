@@ -1270,6 +1270,10 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
        return lock_group_chat(msg, data, target)
       end
+          if matches[2] == 'english' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
+       return lock_group_english(msg, data, target)
+     end
     if matches[2] == 'leave' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leaving ")
        return lock_group_leave(msg, data, target)
@@ -1317,6 +1321,10 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked chat ")
         return unlock_group_chat(msg, data, target)
       end
+          if matches[2] == 'english' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english ")
+       return unlock_group_english(msg, data, target)
+     end
     if matches[2] == 'fosh' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
         return unlock_group_fosh(msg, data, target)
