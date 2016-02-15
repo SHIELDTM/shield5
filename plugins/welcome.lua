@@ -58,7 +58,7 @@ local function description_rules(msg, nama)
          rules = data[tostring(msg.to.id)]["rules"]
          rules = "\nRules :\n"..rules.."\n"
       end
-      local sambutan = "Hi "..nama.."\nWelcome to '"..string.gsub(msg.to.print_name, "_", " ").."'\nYou can use /help for see bot commands\n"
+      local sambutan = "Hi "..nama.."\nخوش امدی به گروه '"..string.gsub(msg.to.print_name, "_", " ").."'\nتو می تونی برای دیدن دستورات /helpرا بزنی\n"
       local text = sambutan..about..rules.."\n"
       local receiver = get_receiver(msg)
       send_large_msg(receiver, text, ok_cb, false)
@@ -88,7 +88,7 @@ local function run(msg, matches)
       description_rules(msg, nama)
    elseif matches[1] == "chat_del_user" then
        local bye_name = msg.action.user.first_name
-       return 'Bye '..bye_name
+       return 'خداحافظ به امید دیدار دوباره '..bye_name
    end
 end
 
