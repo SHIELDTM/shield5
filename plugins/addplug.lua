@@ -1,20 +1,24 @@
-local function run(msg, matches)
-  local text = matches[1]
-  local b = 1
-  while b ~= 0 do
-    text = text:trim()
-    text,b = text:gsub('^!+','')
+do
+ local function save_file(name, text)
+    local file = io.open("./plugins/"..name, "w")
+    file:write(text)
+    file:flush()
+    file:close()
+    return "Plugin saved."
+end   
+function run(msg, matches)
+  if matches[1] == "addplug" and is_sudo(msg) then
+ 
+         local name = matches[2]
+        local text = matches[3]
+        return save_file(name, text)
+        
   end
-  local name = matches[2]
-  local file = io.open("./plugins/"..name..matches[3], "w")
-  file:write(text)
-  file:flush()
-  file:close()
-  return "done" end return {
-  description = "a Usefull plugin for sudo !",
-  usage = "A plugins to add Another plugins to the server",
+end
+return {
   patterns = {
-    "^!addplugin +(.+) (.*) (.*)$"
+  "^[!/](addplug) ([^%s]+) (.+)$"
   },
   run = run
 }
+end
