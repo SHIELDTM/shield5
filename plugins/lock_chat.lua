@@ -27,7 +27,7 @@ local function cron()
 end
 return {
   patterns = {
-    "(.+)"
+    "(.*)"
     },
   run = run,
 	cron = cron
