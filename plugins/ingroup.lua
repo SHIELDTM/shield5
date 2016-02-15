@@ -240,7 +240,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-local text = "Group settings:\nLock group name✏️: "..settings.lock_name.."\nLock group photo🎡: "..settings.lock_photo.."\nLock group member👥: "..settings.lock_member.."\nflood sensitivity🤘: f."..NUM_MSG_MAX.."\nBot protection👾: "..bots_protection.."\nAds protection☠: "..settings.lock_ads.."\nlock chat❎☠: "..settings.lock_chat.."\nLock Tag🆔: "..settings.antitag.."\nlock join�: "..settings.lock_join.."\nlock english�:"..settings.lock_english.." \nSticker Policy👻: "..settings.sticker.."\nWelcome👤➕:"..settings.welcome.."\nantispam: kick\n> Bot Version: 5.5"
+local text = "Group settings:\nLock group name✏️: "..settings.lock_name.."\nLock group photo🎡: "..settings.lock_photo.."\nLock group member👥: "..settings.lock_member.."\nflood sensitivity🤘: f."..NUM_MSG_MAX.."\nBot protection👾: "..bots_protection.."\nAds protection☠: "..settings.lock_ads.."\nlock chat❎☠: "..settings.lock_chat.."\nLock Tag🆔: "..settings.antitag.."\nlock join�: "..settings.lock_join.."\nlock english�:"..settings.lock_english.." \nlock arabic : "..settings.lock_arabic.."\nlock fosh : "..settings.antifosh.."\nSticker Policy👻: "..settings.sticker.."\nWelcome👤➕:"..settings.welcome.."\nantispam: kick\n> Bot Version: 5.5"
   return text
 end
 
@@ -661,6 +661,33 @@ local function welcome_yes(msg, data, target)
  end
  
 local function set_rulesmod(msg, data, target)
+  if not is_momod(msg) then
+    return "For moderators only!"
+  end
+     
+  local group_bots_lock = data[tostring(target)]['settings']['antifosh']
+  if group_bots_lock == 'yes' then
+    return 'lock fosh is already enabled'
+  else
+    data[tostring(target)]['settings']['antifosh'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'lock fosh has been enabled'
+  end
+end
+
+local function unlock_group_bots(msg, data, target)
+  if not is_momod(msg) then
+    return "For moderators only!"
+  end
+  local group_bots_lock = data[tostring(target)]['settings']['antifosh']
+  if group_bots_lock == 'no' then
+    return 'lock fosh is already disabled'
+  else
+    data[tostring(target)]['settings']['antifosh'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'lock fosh has been disabled'
+  end
+local function lock_group_bots(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
