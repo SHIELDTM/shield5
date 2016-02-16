@@ -9,7 +9,7 @@ local function run(msg, matches)
   local user = 119650184
 
   if matches[1] == "invamir" then
-    user = 'user#119650184'..119650184
+    user = 'user#id'..119650184
   end
 
   -- The message must come from a chat group
