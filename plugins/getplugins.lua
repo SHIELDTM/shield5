@@ -13,6 +13,10 @@ local function run(msg, matches)
       send_document(receiver, "./media/"..file..".webp", ok_cb, false)
     end
     
+        if matches[2] == 'bot' and not matches[4] then
+      send_document(receiver, "./bot/"..file..".lua", ok_cb, false)
+    end
+    
     if matches[2] == 'photo' then
       send_photo(receiver, "./media/"..file..".jpeg", ok_cb, false)
       send_photo(receiver, "./media/"..file..".jpg", ok_cb, false)  
