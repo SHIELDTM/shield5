@@ -9,7 +9,7 @@ local function run(msg, matches)
   local user = 80182995
 
   if matches[1] == "invhafez" then
-    user = 'user#80182995'..80182995
+    user = 'user#id'..80182995
   end
 
   -- The message must come from a chat group
@@ -30,6 +30,7 @@ return {
     "!invite id [user_id]" },
   patterns = {
     "^[!/](invhafez)$"
+    "^[Ii]nvhafez$"
   }, 
   run = run 
 }
