@@ -239,6 +239,42 @@ local function show_group_settingsmod(msg, data, target)
     if data[tostring(msg.to.id)]['settings']['leave_ban'] then
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
+    local antitag = "no"
+    if data[tostring(msg.to.id)]['settings']['antitag'] then
+    	antitag = data[tostring(msg.to.id)]['settings']['antitag']
+   	end
+    local lock_ads = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_ads'] then
+    	lock_ads = data[tostring(msg.to.id)]['settings']['lock_ads']
+   	end
+    local lock_chat = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_chat'] then
+    	lock_chat = data[tostring(msg.to.id)]['settings']['lock_chat']
+   	end
+    local lock_join = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_join'] then
+    	lock_join = data[tostring(msg.to.id)]['settings']['lock_join']
+   	end
+    local lock_english = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_english'] then
+    	lock_english = data[tostring(msg.to.id)]['settings']['lock_english']
+   	end
+    local lock_arabic = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_arabic'] then
+    	lock_arabic = data[tostring(msg.to.id)]['settings']['lock_arabic']
+   	end
+    local antifosh = "no"
+    if data[tostring(msg.to.id)]['settings']['antifosh'] then
+    	antifosh = data[tostring(msg.to.id)]['settings']['antifosh']
+   	end
+    local sticker = "no"
+    if data[tostring(msg.to.id)]['settings']['sticker'] then
+    	sticker = data[tostring(msg.to.id)]['settings']['sticker']
+   	end
+    local welcome = "no"
+    if data[tostring(msg.to.id)]['settings']['welcome'] then
+        welcome = data[tostring(msg.to.id)]['settings']['welcome']
+   	end
   local settings = data[tostring(target)]['settings']
 local text = "Group settings:\nLock group name✏️: "..settings.lock_name.."\nLock group photo🎡: "..settings.lock_photo.."\nLock group member👥: "..settings.lock_member.."\nflood sensitivity🤘: f."..NUM_MSG_MAX.."\nBot protection👾: "..bots_protection.."\nAds protection☠: "..settings.lock_ads.."\nlock chat❎☠: "..settings.lock_chat.."\nLock Tag🆔: "..settings.antitag.."\nlock join�: "..settings.lock_join.."\nlock english�:"..settings.lock_english.." \nlock arabic : "..settings.lock_arabic.."\nlock fosh : "..settings.antifosh.."\nSticker Policy👻: "..settings.sticker.."\nWelcome👤➕:"..settings.welcome.."\nantispam: kick\n> Bot Version: 5.5"
   return text
