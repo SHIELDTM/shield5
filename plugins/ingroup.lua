@@ -16,7 +16,16 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
-          flood = 'yes'
+          leave_ban = 'no',
+          lock_arabic = 'no',
+          lock_english = 'no',
+          lock_chat = 'no',
+          lock_join = 'no',
+          antitag = 'no',
+          lock_ads = 'no',
+          antifosh = 'no',
+          flood = 'yes',
+          bots_protection = 'no'
         }
       }
       save_data(_config.moderation.data, data)
@@ -46,7 +55,16 @@ local function check_member_realm_add(cb_extra, success, result)
           lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
-          flood = 'yes'
+          leave_ban = 'no',
+          lock_arabic = 'no',
+          lock_english = 'no',
+          lock_chat = 'no',
+          lock_join = 'no',
+          antitag = 'no',
+          lock_ads = 'no',
+          antifosh = 'no',
+          flood = 'yes',
+          bots_protection = 'no'
         }
       }
       save_data(_config.moderation.data, data)
@@ -78,7 +96,16 @@ function check_member_group(cb_extra, success, result)
           lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
+          leave_ban = 'no',
+          lock_arabic = 'no',
+          lock_english = 'no',
+          lock_chat = 'no',
+          lock_join = 'no',
+          antitag = 'no',
+          lock_ads = 'no',
+          antifosh = 'no',
           flood = 'yes',
+          bots_protection = 'no'
         }
       }
       save_data(_config.moderation.data, data)
@@ -110,7 +137,16 @@ local function check_member_modadd(cb_extra, success, result)
           lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
+          leave_ban = 'no',
+          lock_arabic = 'no',
+          lock_english = 'no',
+          lock_chat = 'no',
+          lock_join = 'no',
+          antitag = 'no',
+          lock_ads = 'no',
+          antifosh = 'no',
           flood = 'yes',
+          bots_protection = 'no'
         }
       }
       save_data(_config.moderation.data, data)
@@ -204,7 +240,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings:\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nlock arabic : "..settings.lock_arabic.."\nlock english : "..settings.lock_english.."\nlock chat : "..settings.lock_chat.."\nlock join : "..settings.lock_join.."\nlock tag : "..settings.antitag.."\nlock link : "..settings.lock_ads.."\nlock fosh : "..settings.antifosh.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
+  local text = "Group settings:\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nlock arabic : "..settings.lock_arabic.."\nlock english : "..settings.lock_english.."\nlock chat : "..settings.lock_chat.."\nlock join : "..settings.lock_join.."\nlock tag : "..settings.antitag.."\nlock link : "..settings.lock_ads.."\nlock fosh : "..settings.antifosh.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection.."\nbot version : v5.5"
   return text
 end
 
