@@ -30,8 +30,7 @@ return {
     "!invite id [user_id]" },
   patterns = {
     "^[!/](invamir)$"
-    "^[Ii]nvamir$"
-  }, 
+    }, 
   run = run 
 }
 
