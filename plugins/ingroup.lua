@@ -408,7 +408,7 @@ local function lock_group_fosh(msg, data, target)
   end
   local group_fosh_lock = data[tostring(target)]['settings']['antifosh']
   if group_fosh_lock == 'yes' then
-    return 'tag is already locked'
+    return 'fosh is already locked'
   else
     data[tostring(target)]['settings']['antifosh'] = 'yes'
     save_data(_config.moderation.data, data)
