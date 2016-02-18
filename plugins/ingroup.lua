@@ -24,6 +24,7 @@ local function check_member_autorealm(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiphoto = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -63,6 +64,7 @@ local function check_member_realm_add(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiphoto = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -104,6 +106,7 @@ function check_member_group(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiphoto = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -145,6 +148,7 @@ local function check_member_modadd(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiphoto = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -399,6 +403,34 @@ local function unlock_group_join(msg, data, target)
     data[tostring(target)]['settings']['lock_join'] = 'no'
     save_data(_config.moderation.data, data)
     return 'join has been unlocked'
+  end
+end
+
+local function lock_group_photo(msg, data, target)
+  if not is_momod(msg) then
+    return "For moderators only!"
+  end
+  local group_photo_lock = data[tostring(target)]['settings']['antiphoto']
+  if group_photo_lock == 'yes' then
+    return 'send photo is already locked'
+  else
+    data[tostring(target)]['settings']['antiphoto'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'send photo has been locked'
+  end
+end
+
+local function unlock_group_photo(msg, data, target)
+  if not is_momod(msg) then
+    return "For moderators only!"
+  end
+  local group_photo_lock = data[tostring(target)]['settings']['antiphoto']
+  if group_photo_lock == 'no' then
+    return 'send photo is already unlocked'
+  else
+    data[tostring(target)]['settings']['antiphoto'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'send photo has been unlocked'
   end
 end
 
@@ -1225,6 +1257,10 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
         return lock_group_fosh(msg, data, target)
      end
+     if matches[2] == 'send photo' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked send photo ")
+       return lock_group_photo(msg, data, target)
+     end
    end
     if matches[1] == 'unlock' then 
       local target = msg.to.id
@@ -1279,6 +1315,10 @@ local function run(msg, matches)
      if matches[2] == 'fosh' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
        return unlock_group_fosh(msg, data, target)
+     end
+     if matches[2] == 'send photo' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked send photo ")
+       return unlock_group_photo(msg, data, target)
      end
    end
     if matches[1] == 'settings' then
