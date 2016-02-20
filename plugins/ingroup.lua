@@ -145,7 +145,7 @@ local function check_member_modadd(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
-          flood = 'yes,
+          flood = 'yes',
           bots_protection = 'no'
         }
       }
@@ -641,7 +641,7 @@ local function unlock_group_photomod(msg, data, target)
     return 'Group photo has been unlocked'
   end
 end
-
+ 
 local function set_rulesmod(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
@@ -1175,6 +1175,17 @@ local function run(msg, matches)
         return set_descriptionmod(msg, data, target, about)
       end
     end
+    if matches[1] == 'silent' then
+      local target = msg.to.id
+     if matches[2] == 'yes' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] turned on silent ")
+        return silent(msg, data, target)
+      end
+     if matches[2] == 'no' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] turned off silent ")
+        return unlock_silent(msg, data, target)
+      end
+     end
     if matches[1] == 'lock' then
       local target = msg.to.id
       if matches[2] == 'name' then
@@ -1197,35 +1208,36 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked bots ")
         return lock_group_bots(msg, data, target)
       end
-      if matches[2] == 'leave' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leaving ")
-        return lock_group_leave(msg, data, target)
-      end     
-      if matches[2] == 'english' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
-        return lock_group_english(msg, data, target)
-      end
-      if matches[2] == 'chat' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
-        return lock_group_chat(msg, data, target)
-      end
-      if matches[2] == 'join' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked join ")
-        return lock_group_join(msg, data, target)
-      end
-      if matches[2] == 'tag' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tag ")
-        return lock_group_tag(msg, data, target)
-      end
       if matches[2] == 'ads' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked link ")
-        return lock_group_ads(msg, data, target)
-      end
-      if matches[2] == 'fosh' then
+          savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ads ")
+          return lock_group_ads(msg, data, target)
+        end
+        
+       if matches[2] == 'fosh' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
-        return lock_group_fosh(msg, data, target)
+       return lock_group_fosh(msg, data, target)
+      end
+         if matches[2] == 'tag' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tag ")
+       return lock_group_tag(msg, data, target)
+      end
+	     if matches[2] == 'chat' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
+       return lock_group_chat(msg, data, target)
+      end
+    if matches[2] == 'leave' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leaving ")
+       return lock_group_leave(msg, data, target)
      end
-   end
+      if matches[2] == 'join' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked joining link ")
+       return lock_group_join(msg, data, target)
+     end
+     if matches[2] == 'english' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
+       return lock_group_english(msg, data, target)
+     end
+  end
     if matches[1] == 'unlock' then 
       local target = msg.to.id
       if matches[2] == 'name' then
@@ -1252,34 +1264,34 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked bots ")
         return unlock_group_bots(msg, data, target)
       end
+       if matches[2] == 'ads' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked ads ")
+        return unlock_group_ads(msg, data, target)
+       end
+       if matches[2] == 'tag' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tag ")
+        return unlock_group_tag(msg, data, target)
+      end
+      if matches[2] == 'chat' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked chat ")
+        return unlock_group_chat(msg, data, target)
+      end
+      if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
+        return unlock_group_fosh(msg, data, target)
+      end
       if matches[2] == 'leave' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked leaving ")
        return unlock_group_leave(msg, data, target)
      end
-     if matches[2] == 'english' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english ")
-       return unlock_group_english(msg, data, target)
-     end
-     if matches[2] == 'chat' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked chat ")
-       return unlock_group_chat(msg, data, target)
-     end
-     if matches[2] == 'join' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked join ")
-       return unlock_group_join(msg, data, target)
-     end
-     if matches[2] == 'tag' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tag ")
-       return unlock_group_tag(msg, data, target)
-     end
-     if matches[2] == 'ads' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link ")
-       return unlock_group_ads(msg, data, target)
-     end
-     if matches[2] == 'fosh' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
-       return unlock_group_fosh(msg, data, target)
-     end
+      if matches[2] == 'join' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked joining link ")
+        return unlock_group_join(msg, data, target)
+      end
+      if matches[2] == 'english' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english ")
+        return unlock_group_english(msg, data, target)
+      end
    end
     if matches[1] == 'settings' then
       local target = msg.to.id
@@ -1287,17 +1299,17 @@ local function run(msg, matches)
       return show_group_settingsmod(msg, data, target)
     end	
 
-  --[[if matches[1] == 'public' then
-    local target = msg.to.id
-    if matches[2] == 'yes' then
-      savelog(msg.to.id, name_log.." ["..msg.from.id.."] set group to: public")
-      return set_public_membermod(msg, data, target)
-    end
-    if matches[2] == 'no' then
-      savelog(msg.to.id, name_log.." ["..msg.from.id.."] set group to: not public")
-      return unset_public_membermod(msg, data, target)
-    end
-  end]]
+ -- if matches[1] == 'public' then
+    --local target = msg.to.id
+    --if matches[2] == 'yes' then
+    --  savelog(msg.to.id, name_log.." ["..msg.from.id.."] set group to: public")
+      --return set_public_membermod(msg, data, target)
+  --  end
+--    if matches[2] == 'no' then
+  --    savelog(msg.to.id, name_log.." ["..msg.from.id.."] set group to: not public")
+  --    return unset_public_membermod(msg, data, target)
+  --  end
+ -- end
 
     if matches[1] == 'newlink' and not is_realm(msg) then
       if not is_momod(msg) then
@@ -1445,7 +1457,7 @@ local function run(msg, matches)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /help")
       return help()
     end
-    if matches[1] == 'res' and is_momod(msg) then 
+    if matches[1] == 'info' and is_momod(msg) then 
       local cbres_extra = {
         chatid = msg.to.id
       }
@@ -1472,41 +1484,79 @@ end
 
 return {
   patterns = {
-  "^[!/](add)$",
-  "^[!/](add) (realm)$",
-  "^[!/](rem)$",
-  "^[!/](rem) (realm)$",
-  "^[!/](rules)$",
-  "^[!/](about)$",
-  "^[!/](setname) (.*)$",
-  "^[!/](setphoto)$",
-  "^[!/](promote) (.*)$",
-  "^[!/](promote)",
-  "^[!/](help)$",
-  "^[!/](clean) (.*)$",
-  "^[!/](kill) (chat)$",
-  "^[!/](kill) (realm)$",
-  "^[!/](demote) (.*)$",
-  "^[!/](demote)",
-  "^[!/](set) ([^%s]+) (.*)$",
-  "^[!/](lock) (.*)$",
-  "^[!/](setowner) (%d+)$",
-  "^[!/](setowner)",
-  "^[!/](owner)$",
-  "^[!/](res) (.*)$",
-  "^[!/](setgpowner) (%d+) (%d+)$",-- (group id) (owner id)
-  "^[!/](unlock) (.*)$",
-  "^[!/](setflood) (%d+)$",
-  "^[!/](settings)$",
--- "^[!/](public) (.*)$",
-  "^[!/](modlist)$",
-  "^[!/](newlink)$",
-  "^[!/](link)$",
-  "^[!/](kickinactive)$",
-  "^[!/](kickinactive) (%d+)$",
+  "^[!/.]([Aa]dd)$",
+  "^[!/.]([Aa]dd) (realm)$",
+  "^[!/.]([Rr]em)$",
+  "^[!/.]([Rr]em) (realm)$",
+  "^[!/.]([Rr]ules)$",
+  "^[!/.]([Aa]bout)$",
+  "^[!/.]([Ss]etname) (.*)$",
+  "^[!/.]([Ss]etphoto)$",
+  "^[!/.]([Pp]romote) (.*)$",
+  "^[!/.]([Pp]romote)",
+  "^[!/.]([Hh]elp)$",
+  "^[!/.]([Cc]lean) (.*)$",
+  "^[!/.]([Kk]ill) (chat)$",
+  "^[!/.]([Kk]ill) (realm)$",
+  "^[!/.]([Dd]emote) (.*)$",
+  "^[!/.]([Dd]emote)",
+  "^[!/.]([Ss]et) ([^%s]+) (.*)$",
+  "^[!/.]([Ss]ilent) (.*)$",
+  "^[!/.]([Ll]ock) (.*)$",
+  "^[!/.]([Ss]etowner) (%d+)$",
+  "^[!/.]([Ss]etowner)",
+  "^[!/.]([Oo]wner)$",
+  "^[!/.]([Ii]nfo) (.*)$",
+  "^[!/.]([Ss]etgpowner) (%d+) (%d+)$",-- (group id) (owner id)
+  "^[!/.]([Uu]nlock) (.*)$",
+  "^[!/.]([Ss]etflood) (%d+)$",
+  "^[!/.]([Ss]ettings)$",
+ -- "^[!/.]([Pp]ublic) (.*)$",
+  "^[!/.]([Mm]odlist)$",
+  "^[!/.]([Nn]ewlink)$",
+  "^[!/.]([Ll]ink)$",
+  "^[!/.]([Kk]ickinactive)$",
+  "^[!/.]([Kk]ickinactive) (%d+)$",
+  "^([Aa]dd)$",
+  "^([Aa]dd) (realm)$",
+  "^([Rr]em)$",
+  "^([Rr]em) (realm)$",
+  "^([Rr]ules)$",
+  "^([Aa]bout)$",
+  "^([Ss]etname) (.*)$",
+  "^([Ss]etphoto)$",
+  "^([Pp]romote) (.*)$",
+  "^([Pp]romote)",
+  "^([Hh]elp)$",
+  "^([Cc]lean) (.*)$",
+  "^([Kk]ill) (chat)$",
+  "^([Kk]ill) (realm)$",
+  "^([Dd]emote) (.*)$",
+  "^([Dd]emote)",
+  "^([Ss]et) ([^%s]+) (.*)$",
+  "^([Ss]ilent) (.*)$",
+  "^([Ll]ock) (.*)$",
+  "^([Ww]elcome) (.*)$",
+  "^([Ss]etowner) (%d+)$",
+  "^([Ss]etowner)",
+  "^([Oo]wner)$",
+  "^([Ii]nfo) (.*)$",
+  "^([Ss]etgpowner) (%d+) (%d+)$",-- (group id) (owner id)
+  "^([Uu]nlock) (.*)$",
+  "^([Ss]etflood) (%d+)$",
+  "^([Ss]ettings)$",
+  --"^([Pp]ublic) (.*)$",
+  "^([Mm]odlist)$",
+  "^([Nn]ewlink)$",
+  "^([Ll]ink)$",
+  "^([Kk]ickinactive)$",
+  "^([Kk]ickinactive) (%d+)$",
   "%[(photo)%]",
   "^!!tgservice (.+)$",
   },
   run = run
 }
 end
+
+
+-- by hamed980
