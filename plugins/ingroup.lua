@@ -240,7 +240,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings"
+  local text = "Group settings :\n_____________________\n>lock group name : "..settings.lock_name.."\n>lock group photo : "..settings.lock_photo.."\n>lock group member : "..settings.lock_member.."\n>lock leave : "..settings.leave_ban.."\n>lock arabic : "..settings.lock_arabic.."\n>lock english : "..settings.lock_english.."\n>lock chat : "..settings.lock_chat.."\n>lock join : "..settings.lock_join.."\n>lock tag : "..settings.antitag.."\n>lock link : "..settings.lock_ads.."\n>lock fosh : "..settings.antifosh.."\n>flood sensitivity : "..NUM_MSG_MAX.."\n>Bot protection : "..bots_protection.."\n>>>shield<<<\n>>@shieldTM<<"
   return text
 end
 
