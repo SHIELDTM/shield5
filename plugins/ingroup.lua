@@ -1225,10 +1225,6 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
         return lock_group_fosh(msg, data, target)
      end
-     if matches[2] == 'send photo' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked send photo ")
-       return lock_group_photo(msg, data, target)
-     end
    end
     if matches[1] == 'unlock' then 
       local target = msg.to.id
@@ -1283,10 +1279,6 @@ local function run(msg, matches)
      if matches[2] == 'fosh' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
        return unlock_group_fosh(msg, data, target)
-     end
-     if matches[2] == 'send photo' then
-       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked send photo ")
-       return unlock_group_photo(msg, data, target)
      end
    end
     if matches[1] == 'settings' then
