@@ -240,6 +240,10 @@ return {
 	"^[/!]([Ii][Nn][Ff][Oo]) (.*)$",
 	"^[/!]([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (%d+) (.*)$",
 	"^[/!]([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (.*)$",
+        "^(info)$",
+        "^(info) (.*)$",
+        "^(setrank) (%d+) (.*)$",
+        "^(setrank) (.*)$"
   },
   run = run
 }
