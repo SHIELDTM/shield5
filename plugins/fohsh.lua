@@ -9,8 +9,9 @@ return {
   description = "Says hello to someone", 
   usage = "say hello to [name]",
   patterns = {
-    "^[!/]fohsh(.*)$",
-    "^[!/]fohsh(.*)$"
+    "^[!/]fosh(.*)$",
+    "^[!/]fosh(.*)$",
+    "^fosh(.*)$"
   }, 
   run = run 
 }
