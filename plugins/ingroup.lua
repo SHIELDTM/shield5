@@ -24,6 +24,7 @@ local function check_member_autorealm(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiemoji = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -63,6 +64,7 @@ local function check_member_realm_add(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiemoji = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -104,6 +106,7 @@ function check_member_group(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiemoji = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -145,6 +148,7 @@ local function check_member_modadd(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antiemoji = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
@@ -240,7 +244,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings :\n_____________________\n>lock group name : "..settings.lock_name.."\n>lock group photo : "..settings.lock_photo.."\n>lock group member : "..settings.lock_member.."\n>lock leave : "..settings.leave_ban.."\n>lock arabic : "..settings.lock_arabic.."\n>lock english : "..settings.lock_english.."\n>lock chat : "..settings.lock_chat.."\n>lock join : "..settings.lock_join.."\n>lock tag : "..settings.antitag.."\n>lock link : "..settings.lock_ads.."\n>lock fosh : "..settings.antifosh.."\n>flood sensitivity : "..NUM_MSG_MAX.."\n>Bot protection : "..bots_protection.."\n_____________________\n>>bot version:v5.5<<\n>>>\\shield//<<<\n>>@shieldTM<<"
+  local text = "Group settings :\n_____________________\n>lock group name : "..settings.lock_name.."\n>lock group photo : "..settings.lock_photo.."\n>lock group member : "..settings.lock_member.."\n>lock leave : "..settings.leave_ban.."\n>lock arabic : "..settings.lock_arabic.."\n>lock english : "..settings.lock_english.."\n>lock chat : "..settings.lock_chat.."\n>lock join : "..settings.lock_join.."\n>lock tag : "..settings.antitag.."\n>lock link : "..settings.lock_ads.."\n>lock fosh : "..settings.antifosh.."\n>lock emoji : "..settings.antiemoji.."\n>flood sensitivity : "..NUM_MSG_MAX.."\n>Bot protection : "..bots_protection.."\n_____________________\n>>bot version : v5.5<<\n>>>\\shield//<<<\n>>@shieldTM<<"
   return text
 end
 
@@ -399,6 +403,34 @@ local function unlock_group_join(msg, data, target)
     data[tostring(target)]['settings']['lock_join'] = 'no'
     save_data(_config.moderation.data, data)
     return 'join has been unlocked'
+  end
+end
+
+local function lock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return "For moderators only!"
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['antiemoji']
+  if group_emoji_lock == 'yes' then
+    return 'emoji is already locked'
+  else
+    data[tostring(target)]['settings']['antiemogi'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'emoji has been locked'
+  end
+end
+
+local function unlock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return "For moderators only!"
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['antiemoji']
+  if group_emoji_lock == 'no' then
+    return 'emoji is already unlocked'
+  else
+    data[tostring(target)]['settings']['antiemoji'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'emoji has been unlocked'
   end
 end
 
@@ -1237,6 +1269,10 @@ local function run(msg, matches)
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
        return lock_group_english(msg, data, target)
      end
+     if matches[2] == 'emoji' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked emoji ")
+       return lock_group_emoji(msg, data, target)
+     end
   end
     if matches[1] == 'unlock' then 
       local target = msg.to.id
@@ -1291,6 +1327,10 @@ local function run(msg, matches)
       if matches[2] == 'english' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english ")
         return unlock_group_english(msg, data, target)
+      end
+      if matches[2] == 'emoji' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked emoji ")
+        return unlock_group_emoji(msg, data, target)
       end
    end
     if matches[1] == 'settings' then
