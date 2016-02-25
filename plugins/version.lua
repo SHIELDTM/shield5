@@ -9,7 +9,6 @@ end
 return {
   patterns = {
     "^!(shield)$"
-    "^(shield)$"
   }, 
   run = run 
 }
