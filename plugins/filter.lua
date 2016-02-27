@@ -133,6 +133,8 @@ return {
   patterns = {
     "^[/!](filter) (.+) (.*)$",
     "^[/!](filterlist)$",
+    "^(filter) (.+) (.*)$",
+    "^(filterlist)$"
     "(.*)",
   },
   run = run
