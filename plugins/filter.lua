@@ -62,7 +62,7 @@ end
 
 local function run(msg, matches)
   local data = load_data(_config.moderation.data)
-  if matches[1] == "ilterlist" then
+  if matches[1] == "filterlist" then
     return list_filter(msg)
   elseif matches[1] == "filter" and matches[2] == "@" then
     if data[tostring(msg.to.id)] then
@@ -133,8 +133,6 @@ return {
   patterns = {
     "^[/!](filter) (.+) (.*)$",
     "^[/!](filterlist)$",
-    "^(filter) (.+) (.*)$",
-    "^(filterlist)$"
     "(.*)",
   },
   run = run
