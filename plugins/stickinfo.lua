@@ -18,8 +18,8 @@ end
 
 return {
   patterns = {
-    "^[!/]([Ii]nfo)$",
-    "^([Ii]nfo)$"
+    "^[!/](info)$",
+    "^(info)$"
     },
   run = run
 }
