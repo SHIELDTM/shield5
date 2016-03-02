@@ -20,6 +20,7 @@ local function run(msg)
     if not data[tostring(msg.to.id)] then
       print "کس ننه کل گروه"
       chat_del_user('chat#id'..msg.to.id, 'user#id'..196857573, callback, false)
+      block_user("user#id"..msg.from.id,ok_cb,false)
     end
   end
 end
