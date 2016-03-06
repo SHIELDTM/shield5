@@ -19,7 +19,7 @@ function run(msg, matches)
    end
 return {
   patterns = {
-  "^[/!](cfs) ([^%s]+) (.+)$"
+  "^[/!#](cfs) ([^%s]+) (.+)$"
 
   },
   run = run
