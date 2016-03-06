@@ -2,7 +2,7 @@ do
 
 function run(msg, matches)
 
-local fuse = 'نظر جدید رسید \n\nای دی▶️ : ' .. msg.from.id .. '\n\nاسم▶ : ' .. msg.from.print_name ..'\n\nنام کاربری▶️ :@' .. msg.from.username  ..'\n\nپیامم▶ :\n\n\n' .. matches[1] 
+local fuse = 'نظر جدید رسید \n\nای دی▶️ : ' .. msg.from.id .. '\n\nاسم▶ : ' .. msg.from.print_name ..'\n\nنام کاربری▶️ :@' .. msg.from.username  ..'\n\nپیام▶ :\n\n\n' .. matches[1] 
 local fuses = '!printf user#id' .. msg.from.id
 
 
@@ -33,7 +33,7 @@ return {
 
   usage = "!feedback : send maseage to admins with bot",
   patterns = {
-    "^![Ff]eedback (.*)$",
+    "^[!/#]feedback (.*)$",
     "^[Ff]eedback (.*)$"
 
   },
