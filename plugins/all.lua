@@ -129,7 +129,7 @@ local function all(target, receiver)
 end
 
 function run(msg, matches)
-  if matches[1] == "all" and matches[2] and is_owner2(msg.from.id, matches[2]) then
+  if matches[1]:lower() == "all" and matches[2] and is_owner2(msg.from.id, matches[2]) then
     local receiver = get_receiver(msg)
     local target = matches[2]
     return all(target, receiver)
@@ -137,7 +137,7 @@ function run(msg, matches)
   if not is_owner(msg) then
     return
   end
-  if matches[1] == "all" and not matches[2] then
+  if matches[1]:lower() == "all" and not matches[2] then
     local receiver = get_receiver(msg)
     if not is_owner(msg) then
       return
@@ -149,10 +149,10 @@ end
 
 return {
   patterns = {
-  "^[!/](all)$",
-  "^[!/](all) (%d+)$",
-  "^(all)$",
-  "^(all) (%d+)$"
+  "^[!/#](all)$",
+  "^[!/#](all) (%d+)$",
+  "^([Aa]ll)$",
+  "^([Aa]ll) (%d+)$"
   },
   run = run
 }
