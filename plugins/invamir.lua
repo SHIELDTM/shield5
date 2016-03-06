@@ -24,7 +24,8 @@ usage = {
 "!invite name [user_name]",
 "!invite id [user_id]" },
 patterns = {
-"^[!/](invamir)$"
+"^[!/#](invamir)$"
+"^([Ii]nvamir)$"
 },
 run = run
 }
