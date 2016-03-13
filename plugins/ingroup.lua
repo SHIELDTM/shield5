@@ -240,7 +240,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings :\n_____________________\n>lock group name : "..settings.lock_name.."\n>lock group photo : "..settings.lock_photo.."\n>lock group member : "..settings.lock_member.."\n>lock leave : "..settings.leave_ban.."\n>lock arabic : "..settings.lock_arabic.."\n>lock english : "..settings.lock_english.."\n>lock chat : "..settings.lock_chat.."\n>lock join : "..settings.lock_join.."\n>lock tag : "..settings.antitag.."\n>lock link : "..settings.lock_ads.."\n>lock fosh : "..settings.antifosh.."\n>lock media : "..settings.antimedia.."\n>lock share contact : "..settings.antishare.."\n>lock flood : "..settings.flood.."\n>flood sensitivity : "..NUM_MSG_MAX.."\n>Bot protection : "..bots_protection.."\n_____________________\n>>bot version:v5.5<<\n>>>\\shield//<<<\n>>@shieldTM<<"
+  local text = "Group settings :\n_____________________\n>lock group name : "..settings.lock_name.."\n>lock group photo : "..settings.lock_photo.."\n>lock group member : "..settings.lock_member.."\n>lock leave : "..settings.leave_ban.."\n>lock arabic : "..settings.lock_arabic.."\n>lock english : "..settings.lock_english.."\n>lock chat : "..settings.lock_chat.."\n>lock join : "..settings.lock_join.."\n>lock tag : "..settings.antitag.."\n>lock link : "..settings.lock_ads.."\n>lock fosh : "..settings.antifosh.."\n>lock media : "..settings.antimedia.."\n>lock persian : "..settings.antifa.."\n>lock flood : "..settings.flood.."\n>flood sensitivity : "..NUM_MSG_MAX.."\n>Bot protection : "..bots_protection.."\n_____________________\n>>bot version:v5.5<<\n>>>\\shield//<<<\n>>@shieldTM<<"
   return text
 end
 
@@ -420,7 +420,7 @@ local function unlock_group_media(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
-  local group_tag_lock = data[tostring(target)]['settings']['antimedia']
+  local group_media_lock = data[tostring(target)]['settings']['antimedia']
   if group_media_lock == 'no' then
     return 'media is already unlocked'
   else
@@ -458,31 +458,31 @@ local function unlock_group_fosh(msg, data, target)
   end
 end
 
-local function lock_group_share(msg, data, target)
+local function lock_group_fa(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
-  local group_share_lock = data[tostring(target)]['settings']['antishare']
-  if group_fosh_lock == 'yes' then
-    return 'share contact is already locked'
+  local group_fa_lock = data[tostring(target)]['settings']['antifa']
+  if group_fa_lock == 'yes' then
+    return 'persian is already locked'
   else
-    data[tostring(target)]['settings']['antishare'] = 'yes'
+    data[tostring(target)]['settings']['antifa'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'share contact has been locked'
+    return 'persian has been locked'
   end
 end
 
-local function unlock_group_share(msg, data, target)
+local function unlock_group_fa(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
   end
-  local group_share_lock = data[tostring(target)]['settings']['antishare']
-  if group_share_lock == 'no' then
-    return 'share contact is already unlocked'
+  local group_fa_lock = data[tostring(target)]['settings']['antifa']
+  if group_fa_lock == 'no' then
+    return 'persian is already unlocked'
   else
-    data[tostring(target)]['settings']['antishare'] = 'no'
+    data[tostring(target)]['settings']['antifa'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'share contact has been unlocked'
+    return 'persian has been unlocked'
   end
 end
 
@@ -1297,9 +1297,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked media ")
         return lock_group_media(msg, data, target)
       end
-	  if matches[2] == 'share' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked share contact ")
-        return lock_group_share(msg, data, target)
+	  if matches[2] == 'persian' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked persian ")
+        return lock_group_fa(msg, data, target)
       end
   end
     if matches[1]:lower() == 'unlock' then 
@@ -1360,9 +1360,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked media ")
         return unlock_group_media(msg, data, target)
       end
-	  if matches[2] == 'share' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked share contact ")
-        return unlock_group_share(msg, data, target)
+	  if matches[2] == 'persian' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked persian ")
+        return unlock_group_fa(msg, data, target)
       end
    end
     if matches[1]:lower() == 'settings' then
@@ -1629,3 +1629,5 @@ return {
   run = run
 }
 end
+
+
