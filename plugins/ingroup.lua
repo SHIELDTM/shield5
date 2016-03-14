@@ -24,6 +24,8 @@ local function check_member_autorealm(cb_extra, success, result)
           antitag = 'no',
           lock_ads = 'no',
           antifosh = 'no',
+          antimedia = 'no',
+          antifa = 'no',
           flood = 'yes',
           bots_protection = 'no'
         }
