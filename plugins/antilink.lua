@@ -20,11 +20,11 @@ end
  
 return {patterns = {
 "[Hh]ttps://(.*)",
-"[Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/(.*)",
-"[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/(.*)/",
-"[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/(.*",
-"[Hh][Tt][Tt][Pp]://(.*)",
-"[Ww][Ww][Ww]:(.*)",
+"[Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/",
+"[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/",
+"[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/",
+"[Hh][Tt][Tt][Pp]://",
+"[Ww][Ww][Ww]:",
   },
   run = run
 }
