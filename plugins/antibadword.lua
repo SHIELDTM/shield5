@@ -1,5 +1,5 @@
 local function run(msg, matches)
-    if is_owner(msg) then
+    if is_momod(msg) then
         return
     end
     local data = load_data(_config.moderation.data)
